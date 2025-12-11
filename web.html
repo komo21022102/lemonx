@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENS | 平面設計作品集</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Noto+Serif+TC:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        paper: '#fcfaf8', // 模擬紙張的暖白色
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', '"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Serif TC"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                        '5xl': '3rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -10px rgba(0, 0, 0, 0.03)',
+                        'floating': '0 30px 60px -12px rgba(40, 35, 30, 0.06)',
+                    },
+                    letterSpacing: {
+                        'widest-plus': '0.2em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #fcfaf8;
+            color: #44403c;
+        }
+
+        /* 自定義優雅滾動條 */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #d6d3d1;
+            border-radius: 20px;
+        }
+
+        .antialiased-text {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* 圖片載入過渡效果 */
+        .img-reveal {
+            opacity: 0;
+            transform: scale(1.03);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .img-reveal.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 文字上浮過渡效果 */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s cubic-bezier(0.2, 0.65, 0.3, 0.9);
+        }
+
+        .text-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        /* --- New Micro-Animations --- */
+
+        /* Magic Wand Particles */
+        .magic-star {
+            display: block;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            line-height: 1;
+            font-family: monospace;
+            animation: sparkle-drop 0.8s linear forwards;
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes sparkle-drop {
+            0% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, 40px) scale(0) rotate(180deg);
+            }
+        }
+
+        /* 2. Navigation Underline Flow */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* 3. Hero Parallax & Floating */
+        .hero-float {
+            animation: floating 8s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(0.5deg);
+            }
+
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* 4. Smooth Parallax Class */
+        .parallax-item {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+    </style>
+</head>
+
+<body class="font-serif antialiased-text overflow-x-hidden selection:bg-stone-200 selection:text-stone-800">
+
+    <!-- Navigation -->
+    <nav
+        class="fixed w-full z-50 top-0 transition-all duration-500 py-8 px-8 md:px-12 flex justify-between items-center mix-blend-multiply bg-[#fcfaf8]/95 backdrop-blur-sm">
+        <a href="web.html" class="text-2xl tracking-widest font-semibold text-stone-800 cursor-pointer z-50">SENS.</a>
+
+        <div class="hidden md:flex gap-16 text-stone-500 text-xs tracking-widest-plus uppercase font-bold">
+            <a href="work.html" class="nav-link hover:text-stone-900 transition-colors duration-500">Work</a>
+            <a href="profile.html" class="nav-link hover:text-stone-900 transition-colors duration-500">Profile</a>
+            <a href="contact.html" class="nav-link hover:text-stone-900 transition-colors duration-500">Contact</a>
+        </div>
+
+        <button id="mobile-menu-btn"
+            class="md:hidden text-stone-800 z-50 transition-transform duration-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1"
+                stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+            </svg>
+        </button>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-[#fcfaf8] z-40 flex flex-col justify-center items-center gap-12 text-2xl opacity-0 pointer-events-none transition-all duration-500 md:hidden">
+            <a href="work.html" class="nav-link text-stone-800 font-light tracking-widest text-3xl">Work</a>
+            <a href="profile.html" class="nav-link text-stone-800 font-light tracking-widest text-3xl">Profile</a>
+            <a href="contact.html" class="nav-link text-stone-800 font-light tracking-widest text-3xl">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center relative px-6 pt-24 pb-12">
+        <div class="max-w-4xl text-center z-10 space-y-6 mb-12">
+            <p class="text-stone-400 tracking-[0.4em] text-[10px] md:text-xs uppercase text-reveal">Portfolio 2024-2025
+            </p>
+            <h1 class="text-6xl md:text-8xl text-stone-800 leading-[1] font-light text-reveal delay-100">
+                Visual <br>
+                <span class="italic text-stone-500 font-thin">Silence.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-stone-500 mt-8 font-light tracking-widest text-reveal delay-200">
+                以留白對話，<br class="md:hidden">讓視覺呼吸。
+            </p>
+        </div>
+
+        <!-- Floating Image Card (Main Showcase) -->
+        <div
+            class="w-full max-w-6xl aspect-[16/9] relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-soft text-reveal delay-300 group cursor-none hero-parallax-container">
+            <!-- 替換 Hero 圖片：極簡光影與建築/平面感 -->
+            <img src="./images/hero_cat_minimal.png" alt="Minimalist cat in white room"
+                class="w-full h-full object-cover object-center img-reveal active transition-transform duration-100 scale-105 hero-parallax-img">
+
+            <div class="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/5 transition-colors duration-700">
+            </div>
+
+            <div
+                class="absolute bottom-0 left-0 p-8 md:p-12 text-stone-800 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                <span
+                    class="block text-xs tracking-widest border-t border-stone-800 pt-4 w-auto uppercase font-bold">Featured
+                    Project &rarr;</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Philosophy / Statement -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+
+            <!-- Text Content -->
+            <div class="md:col-span-5 md:col-start-2 space-y-10 text-reveal">
+                <h2 class="text-3xl md:text-4xl text-stone-800 leading-snug font-light">
+                    Designing the<br>
+                    <span class="italic text-stone-400 font-serif">Invisible.</span>
+                </h2>
+                <div
+                    class="space-y-6 text-stone-500 leading-loose text-justify text-sm md:text-base font-light tracking-wide">
+                    <p>
+                        好的設計不僅是您所看見的，更是您所感受到的空間。我們專注於字體排印與紙張質感的交互作用，在擁擠的視覺世界中，創造一片寧靜。
+                    </p>
+                    <p>
+                        Every layout is a carefully composed rhythm of ink and paper. We believe that simplicity is the
+                        ultimate sophistication.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Image Card (Texture detail) -->
+            <div class="md:col-span-5 md:col-start-8 mt-12 md:mt-0 relative">
+                <div
+                    class="aspect-[3/4] rounded-t-full rounded-b-[10rem] overflow-hidden shadow-floating bg-white text-reveal delay-200">
+                    <!-- 替換質感圖片：紙張紋理 -->
+                    <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=2787&auto=format&fit=crop"
+                        alt="Paper Texture Detail" data-speed="0.05"
+                        class="parallax-item w-full h-full object-cover opacity-90 scale-110">
+                </div>
+                <!-- Decorative element -->
+                <div class="absolute -bottom-8 -right-8 w-32 h-32 border border-stone-200 rounded-full -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Grid Section -->
+    <section class="py-24 bg-[#f5f4f2] rounded-[3rem] mx-4 md:mx-8 mb-24 overflow-hidden">
+        <div class="px-6 md:px-16 mb-20 flex flex-col md:flex-row justify-between items-end gap-6 text-reveal">
+            <div>
+                <span class="text-[10px] font-bold tracking-[0.3em] text-stone-400 block mb-4">SELECTED WORKS</span>
+                <h3 class="text-4xl md:text-5xl text-stone-800 font-light">Recent Projects</h3>
+            </div>
+            <div class="flex gap-6 text-sm text-stone-400 font-light tracking-widest">
+                <button class="border-b border-stone-800 text-stone-800 pb-1">All</button>
+                <button class="hover:text-stone-800 transition-colors pb-1">Print</button>
+                <button class="hover:text-stone-800 transition-colors pb-1">Identity</button>
+            </div>
+        </div>
+
+        <!-- Cards Container -->
+        <div class="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 px-6 md:px-16">
+
+            <!-- Work 1: Editorial -->
+            <div class="group cursor-pointer text-reveal delay-100">
+                <div
+                    class="aspect-[3/4] bg-white rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                    <!-- 替換 Work 1：書籍排版 -->
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=2787&auto=format&fit=crop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                        alt="Magazine Layout">
+                </div>
+                <div class="mt-8 px-2">
+                    <span class="text-xs text-stone-400 tracking-widest uppercase">Editorial</span>
+                    <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-500 transition-colors">
+                        Kinfolk Style</h4>
+                </div>
+            </div>
+
+            <!-- Work 2: Branding (Offset) -->
+            <div class="group cursor-pointer md:mt-24 text-reveal delay-200">
+                <div
+                    class="aspect-[3/4] bg-white rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                    <!-- 替換 Work 2：品牌識別/文具 -->
+                    <img src="https://images.unsplash.com/photo-1589330694653-418b72500732?q=80&w=2787&auto=format&fit=crop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                        alt="Brand Identity">
+                </div>
+                <div class="mt-8 px-2">
+                    <span class="text-xs text-stone-400 tracking-widest uppercase">Branding</span>
+                    <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-500 transition-colors">Mono
+                        Coffee</h4>
+                </div>
+            </div>
+
+            <!-- Work 3: Poster -->
+            <div class="group cursor-pointer text-reveal delay-300">
+                <div
+                    class="aspect-[3/4] bg-white rounded-[24px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                    <!-- 替換 Work 3：藝術海報/抽象 -->
+                    <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2788&auto=format&fit=crop"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                        alt="Art Exhibition Poster">
+                </div>
+                <div class="mt-8 px-2">
+                    <span class="text-xs text-stone-400 tracking-widest uppercase">Poster</span>
+                    <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-500 transition-colors">
+                        Silence Exhibition</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Archive List -->
+    <section class="py-24 px-6 md:px-12 max-w-4xl mx-auto">
+        <h3 class="text-[10px] font-bold tracking-[0.3em] text-stone-400 mb-16 uppercase text-center">Archive List</h3>
+
+        <div class="divide-y divide-stone-200 border-t border-b border-stone-200">
+            <!-- List Item 1 -->
+            <div
+                class="group py-8 flex flex-col md:flex-row justify-between items-baseline hover:bg-white hover:px-4 transition-all duration-500 cursor-pointer text-reveal">
+                <div class="flex gap-8 items-baseline">
+                    <span class="text-xs text-stone-400 font-mono">01</span>
+                    <h4 class="text-xl md:text-2xl text-stone-700 group-hover:text-stone-900 font-light">Tokyo Art Book
+                        Fair</h4>
+                </div>
+                <div class="flex-1 md:text-right mt-2 md:mt-0">
+                    <span class="text-stone-400 text-sm italic font-serif group-hover:text-stone-600">Event
+                        Identity</span>
+                </div>
+            </div>
+
+            <!-- List Item 2 -->
+            <div
+                class="group py-8 flex flex-col md:flex-row justify-between items-baseline hover:bg-white hover:px-4 transition-all duration-500 cursor-pointer text-reveal delay-100">
+                <div class="flex gap-8 items-baseline">
+                    <span class="text-xs text-stone-400 font-mono">02</span>
+                    <h4 class="text-xl md:text-2xl text-stone-700 group-hover:text-stone-900 font-light">Aesop X SENS
+                    </h4>
+                </div>
+                <div class="flex-1 md:text-right mt-2 md:mt-0">
+                    <span class="text-stone-400 text-sm italic font-serif group-hover:text-stone-600">Packaging</span>
+                </div>
+            </div>
+
+            <!-- List Item 3 -->
+            <div
+                class="group py-8 flex flex-col md:flex-row justify-between items-baseline hover:bg-white hover:px-4 transition-all duration-500 cursor-pointer text-reveal delay-200">
+                <div class="flex gap-8 items-baseline">
+                    <span class="text-xs text-stone-400 font-mono">03</span>
+                    <h4 class="text-xl md:text-2xl text-stone-700 group-hover:text-stone-900 font-light">Daily Calendar
+                    </h4>
+                </div>
+                <div class="flex-1 md:text-right mt-2 md:mt-0">
+                    <span class="text-stone-400 text-sm italic font-serif group-hover:text-stone-600">Product
+                        Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1c1917] text-stone-300 py-32 rounded-t-[3rem] relative z-10 mt-12">
+        <div class="max-w-7xl mx-auto px-8 md:px-12 flex flex-col md:flex-row justify-between gap-16">
+
+            <div class="space-y-8">
+                <h5 class="text-5xl md:text-6xl text-stone-100 tracking-tight font-serif italic font-thin opacity-80">
+                    Let's create<br>together.</h5>
+                <a href="mailto:hello@sens-design.com"
+                    class="inline-block text-lg text-stone-400 border-b border-stone-800 pb-2 hover:text-white hover:border-white transition-colors pt-4">
+                    hello@sens-design.com
+                </a>
+            </div>
+
+            <div class="flex gap-16 md:gap-24 text-xs tracking-[0.2em] font-bold text-stone-500">
+                <ul class="space-y-6 uppercase">
+                    <li><a href="#" class="hover:text-white transition-colors">Behance</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Are.na</a></li>
+                </ul>
+                <div class="leading-loose font-normal normal-case">
+                    <p>Taipei City,<br>Taiwan</p>
+                    <p class="mt-4">&copy; 2025 SENS.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Magic Cursor Elements will be generated dynamically -->
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Reveal Animation Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.text-reveal, .img-reveal');
+            revealElements.forEach(el => observer.observe(el));
+
+            // 2. Magic Wand Effect Logic
+            let lastX = 0;
+            let lastY = 0;
+            let lastTime = 0;
+            const colors = ['#d6d3d1', '#a8a29e', '#e7e5e4', '#FCD34D', '#ffffff']; // Stone tone + Subtle Gold + White
+
+            const createStar = (x, y) => {
+                const star = document.createElement('div');
+                star.className = 'magic-star';
+
+                // Random shapes: Star, Sparkle, Dot
+                const shapes = ['✦', '✧', '★', '+', '·'];
+                star.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+
+                star.style.left = `${x}px`;
+                star.style.top = `${y}px`;
+                star.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+                // Random Size
+                const size = Math.random() * 12 + 8;
+                star.style.fontSize = `${size}px`;
+
+                document.body.appendChild(star);
+
+                // Cleanup
+                setTimeout(() => {
+                    star.remove();
+                }, 800);
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                const currentTime = Date.now();
+                const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+
+                // Throttle generation: only generate if moved enough distance
+                if (dist > 15) {
+                    createStar(e.clientX, e.clientY);
+                    lastX = e.clientX;
+                    lastY = e.clientY;
+                }
+            });
+
+            // Add hover class just for other effects if needed (though not used for cursor anymore)
+            hoverElements.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+
+            // 3. Hero Image Mouse Parallax
+            const heroContainer = document.querySelector('.hero-parallax-container');
+            const heroImg = document.querySelector('.hero-parallax-img');
+
+            if (heroContainer && heroImg) {
+                heroContainer.addEventListener('mousemove', (e) => {
+                    const rect = heroContainer.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                    // Move image opposite directly slightly
+                    heroImg.style.transform = `scale(1.05) translate(${-x * 30}px, ${-y * 30}px)`;
+                });
+
+                heroContainer.addEventListener('mouseleave', () => {
+                    heroImg.style.transform = `scale(1.05) translate(0px, 0px)`;
+                });
+            }
+
+            // 4. Scroll Parallax for specific images
+            const parallaxItems = document.querySelectorAll('.parallax-item');
+
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                parallaxItems.forEach(item => {
+                    const speed = item.getAttribute('data-speed') || 0.1;
+                    const distance = scrollY * speed;
+                    item.style.transform = `translateY(${distance}px) scale(1.1)`; // Keep scale to avoid edges showing
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('pointer-events-auto');
+
+                    if (isOpen) {
+                        // Close menu
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                        mobileBtn.classList.remove('rotate-90');
+                        document.body.style.overflow = '';
+                    } else {
+                        // Open menu
+                        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                        mobileBtn.classList.add('rotate-90');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                        mobileBtn.classList.remove('rotate-90');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
