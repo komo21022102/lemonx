@@ -307,10 +307,13 @@
                         data-target="panel-all">All</button>
                     <button
                         class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
-                        data-target="panel-print">Print</button>
+                        data-target="panel-visual">視覺</button>
                     <button
                         class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
-                        data-target="panel-identity">Identity</button>
+                        data-target="panel-ui">UII</button>
+                    <button
+                        class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
+                        data-target="panel-illustration">插畫</button>
                 </div>
             </div>
         </div>
@@ -365,8 +368,8 @@
                 </div>
             </div>
 
-            <!-- Panel Print (Different shuffle) -->
-            <div id="panel-print"
+            <!-- Panel Visual (Was Print) -->
+            <div id="panel-visual"
                 class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-0 invisible absolute inset-0 -z-10 px-6 md:px-16 translate-y-4">
                 <!-- Work 1 -->
                 <div class="group cursor-pointer md:mt-12">
@@ -377,7 +380,7 @@
                             alt="Typography">
                     </div>
                     <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Print</span>
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Visual</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
                             Typography Study</h4>
                     </div>
@@ -391,7 +394,7 @@
                             alt="Magazine Layout">
                     </div>
                     <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Editorial</span>
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Visual</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
                             Kinfolk Volume 2</h4>
                     </div>
@@ -405,56 +408,103 @@
                             alt="Book Design">
                     </div>
                     <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Book Design</span>
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Visual</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
                             The White Book</h4>
                     </div>
                 </div>
             </div>
 
-            <!-- Panel Identity -->
-            <div id="panel-identity"
+            <!-- Panel UII (Was Identity) -->
+            <div id="panel-ui"
                 class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-0 invisible absolute inset-0 -z-10 px-6 md:px-16 translate-y-4">
                 <!-- Work 1 -->
                 <div class="group cursor-pointer">
                     <div
                         class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2787&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                            alt="Packaging">
+                            alt="App Interface">
                     </div>
                     <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Packaging</span>
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">UII</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
-                            Aesop Limited</h4>
+                            Finance App</h4>
                     </div>
                 </div>
                 <!-- Work 2 -->
                 <div class="group cursor-pointer md:mt-16">
                     <div
                         class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                        <img src="https://images.unsplash.com/photo-1589330694653-418b72500732?q=80&w=2787&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1616469829941-c7200edec809?q=80&w=2940&auto=format&fit=crop"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                            alt="Brand Identity">
+                            alt="Web Design">
                     </div>
                     <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Branding</span>
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">UII</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
-                            Mono Coffee</h4>
+                            Agency Landing</h4>
                     </div>
                 </div>
                 <!-- Work 3 -->
                 <div class="group cursor-pointer md:mt-8">
                     <div
                         class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                        <img src="https://images.unsplash.com/photo-1633519118556-9d2a23078720?q=80&w=2835&auto=format&fit=crop"
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2928&auto=format&fit=crop"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                            alt="Stationery">
+                            alt="Dashboard">
                     </div>
                     <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Stationery</span>
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">UII</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
-                            Studio Note</h4>
+                            Analytics Portal</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Illustration (New) -->
+            <div id="panel-illustration"
+                class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-0 invisible absolute inset-0 -z-10 px-6 md:px-16 translate-y-4">
+                <!-- Work 1 -->
+                <div class="group cursor-pointer md:mt-12">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1616628188859-7a11abb854c9?q=80&w=2940&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Illustration 1">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Illustration</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Dreamscape</h4>
+                    </div>
+                </div>
+                <!-- Work 2 -->
+                <div class="group cursor-pointer">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2864&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Illustration 2">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Illustration</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Abstract Life</h4>
+                    </div>
+                </div>
+                <!-- Work 3 -->
+                <div class="group cursor-pointer md:mt-24">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Illustration 3">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Illustration</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Blooming</h4>
                     </div>
                 </div>
             </div>
