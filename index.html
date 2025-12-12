@@ -268,20 +268,21 @@
 
                     </p>
                     <p>
-                        Visual perception is a journey reflecting the author's inner state. Through continuous
-                        absorption, contemplation, and sedimentation, still unearthing one's unknown potential even now.
+                        Visual perception is a journey reflecting the author's inner state.
+                        Through continuous absorption,contemplation,and sedimentation, still unearthing one's unknown
+                        potential even now.
                         This is the true preciousness of design.
                     </p>
                 </div>
             </div>
 
             <!-- Image Card (Texture detail) -->
-            <div class="md:col-span-5 md:col-start-8 mt-12 md:mt-0 relative">
+            <div class="md:col-span-5 md:col-start-8 mt-12 md:mt-0 relative philosophy-parallax-container">
                 <div
-                    class="aspect-[3/4] rounded-t-full rounded-b-[10rem] overflow-hidden shadow-floating bg-white text-reveal delay-200">
+                    class="aspect-[3/4] w-[80%] mx-auto rounded-t-full rounded-b-[10rem] overflow-hidden shadow-floating bg-white text-reveal delay-200">
                     <!-- 替換質感圖片：紙張紋理 -->
-                    <img src="./images/indexpic.jpg" alt="Visual philosophy representation" data-speed="0.05"
-                        class="parallax-item w-full h-full object-cover opacity-90 scale-110">
+                    <img src="./images/indexpic.jpg" alt="Visual philosophy representation"
+                        class="w-full h-full object-cover opacity-90 scale-110 philosophy-parallax-img transition-transform duration-100 ease-out">
                 </div>
                 <!-- Decorative element -->
                 <div class="absolute -bottom-8 -right-8 w-32 h-32 border border-stone-200 rounded-full -z-10"></div>
@@ -343,7 +344,7 @@
                 <div
                     class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
                     <!-- 替換 Work 3：藝術海報/抽象 -->
-                    <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2788&auto=format&fit=crop"
+                    <img src="https://images.unsplash.com/photo-151546227712662007a?q=80&w=2788&auto=format&fit=crop"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
                         alt="Art Exhibition Poster">
                 </div>
@@ -519,7 +520,25 @@
                 });
             }
 
-            // 4. Scroll Parallax for specific images
+            // 4. Philosophy Image Mouse Parallax (New)
+            const philoContainer = document.querySelector('.philosophy-parallax-container');
+            const philoImg = document.querySelector('.philosophy-parallax-img');
+
+            if (philoContainer && philoImg) {
+                philoContainer.addEventListener('mousemove', (e) => {
+                    const rect = philoContainer.getBoundingClientRect();
+                    const x = (e.clientX - rect.left) / rect.width - 0.5;
+                    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                    philoImg.style.transform = `scale(1.1) translate(${-x * 20}px, ${-y * 20}px)`;
+                });
+
+                philoContainer.addEventListener('mouseleave', () => {
+                    philoImg.style.transform = `scale(1.1) translate(0px, 0px)`;
+                });
+            }
+
+            // 5. Scroll Parallax for specific images
             const parallaxItems = document.querySelectorAll('.parallax-item');
 
             window.addEventListener('scroll', () => {
