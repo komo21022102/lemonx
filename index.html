@@ -291,72 +291,218 @@
     </section>
 
     <!-- Works Grid Section -->
-    <section class="py-24 bg-[#f5f4f2] rounded-[8px] mx-4 md:mx-8 mb-24 overflow-hidden">
-        <div class="px-6 md:px-16 mb-20 flex flex-col md:flex-row justify-between items-end gap-6 text-reveal">
-            <div>
-                <span class="text-[10px] font-bold tracking-[0.3em] text-stone-400 block mb-4">SELECTED WORKS</span>
-                <h3 class="text-4xl md:text-5xl text-stone-800 font-light">Recent Projects</h3>
-            </div>
-            <div class="flex gap-6 text-sm text-stone-400 font-light tracking-widest">
-                <button class="border-b border-stone-800 text-stone-800 pb-1">All</button>
-                <button class="hover:text-stone-800 transition-colors pb-1">Print</button>
-                <button class="hover:text-stone-800 transition-colors pb-1">Identity</button>
+    <!-- Works Grid Section (Tabbed) -->
+    <section class="py-24 bg-[#f5f4f2] rounded-[8px] mx-4 md:mx-8 mb-24 overflow-hidden relative min-h-[800px]">
+        <div class="px-6 md:px-16 mb-12">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                <div>
+                    <span class="text-[10px] font-bold tracking-[0.3em] text-stone-400 block mb-4">SELECTED WORKS</span>
+                    <h3 class="text-4xl md:text-5xl text-stone-800 font-light">Recent Projects</h3>
+                </div>
+
+                <!-- Tabs -->
+                <div
+                    class="flex gap-8 text-sm text-stone-400 font-light tracking-widest border-b border-stone-200 w-full md:w-auto overflow-x-auto pb-4 md:pb-0">
+                    <button class="tab-btn text-stone-800 border-b-2 border-stone-800 pb-4 transition-all duration-300"
+                        data-target="panel-all">All</button>
+                    <button
+                        class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
+                        data-target="panel-print">Print</button>
+                    <button
+                        class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
+                        data-target="panel-identity">Identity</button>
+                </div>
             </div>
         </div>
 
-        <!-- Cards Container -->
-        <div class="flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 px-6 md:px-16">
+        <!-- Tab Panels Container -->
+        <div class="relative px-6 md:px-16">
 
-            <!-- Work 1: Editorial -->
-            <div class="group cursor-pointer text-reveal delay-100">
-                <div
-                    class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                    <!-- 替換 Work 1：書籍排版 -->
-                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=2787&auto=format&fit=crop"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                        alt="Magazine Layout">
+            <!-- Panel All -->
+            <div id="panel-all"
+                class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-100 visible relative z-10">
+                <!-- Work 1 -->
+                <div class="group cursor-pointer">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Magazine Layout">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Editorial</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Kinfolk Style</h4>
+                    </div>
                 </div>
-                <div class="mt-8 px-2">
-                    <span class="text-xs text-stone-400 tracking-widest uppercase">Editorial</span>
-                    <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-500 transition-colors">
-                        Kinfolk Style</h4>
+                <!-- Work 2 -->
+                <div class="group cursor-pointer md:mt-24">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1589330694653-418b72500732?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Brand Identity">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Branding</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Mono Coffee</h4>
+                    </div>
+                </div>
+                <!-- Work 3 -->
+                <div class="group cursor-pointer">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2788&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Art Exhibition Poster">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Poster</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Silence Exhibition</h4>
+                    </div>
                 </div>
             </div>
 
-            <!-- Work 2: Branding (Offset) -->
-            <div class="group cursor-pointer md:mt-24 text-reveal delay-200">
-                <div
-                    class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                    <!-- 替換 Work 2：品牌識別/文具 -->
-                    <img src="https://images.unsplash.com/photo-1589330694653-418b72500732?q=80&w=2787&auto=format&fit=crop"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                        alt="Brand Identity">
+            <!-- Panel Print (Different shuffle) -->
+            <div id="panel-print"
+                class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-0 invisible absolute inset-0 -z-10 px-6 md:px-16 translate-y-4">
+                <!-- Work 1 -->
+                <div class="group cursor-pointer md:mt-12">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2874&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Typography">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Print</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Typography Study</h4>
+                    </div>
                 </div>
-                <div class="mt-8 px-2">
-                    <span class="text-xs text-stone-400 tracking-widest uppercase">Branding</span>
-                    <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-500 transition-colors">Mono
-                        Coffee</h4>
+                <!-- Work 2 -->
+                <div class="group cursor-pointer">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Magazine Layout">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Editorial</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Kinfolk Volume 2</h4>
+                    </div>
+                </div>
+                <!-- Work 3 -->
+                <div class="group cursor-pointer md:mt-24">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1628260412297-a3377e45006f?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Book Design">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Book Design</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            The White Book</h4>
+                    </div>
                 </div>
             </div>
 
-            <!-- Work 3: Poster -->
-            <div class="group cursor-pointer text-reveal delay-300">
-                <div
-                    class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                    <!-- 替換 Work 3：藝術海報/抽象 -->
-                    <img src="https://images.unsplash.com/photo-151546227712662007a?q=80&w=2788&auto=format&fit=crop"
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                        alt="Art Exhibition Poster">
+            <!-- Panel Identity -->
+            <div id="panel-identity"
+                class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-0 invisible absolute inset-0 -z-10 px-6 md:px-16 translate-y-4">
+                <!-- Work 1 -->
+                <div class="group cursor-pointer">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Packaging">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Packaging</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Aesop Limited</h4>
+                    </div>
                 </div>
-                <div class="mt-8 px-2">
-                    <span class="text-xs text-stone-400 tracking-widest uppercase">Poster</span>
-                    <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-500 transition-colors">
-                        Silence Exhibition</h4>
+                <!-- Work 2 -->
+                <div class="group cursor-pointer md:mt-16">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1589330694653-418b72500732?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Brand Identity">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Branding</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Mono Coffee</h4>
+                    </div>
+                </div>
+                <!-- Work 3 -->
+                <div class="group cursor-pointer md:mt-8">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1633519118556-9d2a23078720?q=80&w=2835&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Stationery">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Stationery</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Studio Note</h4>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
+
+    <!-- Tab Logic Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 1. Deactivate all buttons
+                    tabBtns.forEach(b => {
+                        b.classList.remove('text-stone-800', 'border-stone-800');
+                        b.classList.add('text-stone-400', 'border-transparent');
+                    });
+                    // 2. Activate clicked button
+                    btn.classList.remove('text-stone-400', 'border-transparent');
+                    btn.classList.add('text-stone-800', 'border-stone-800');
+
+                    // 3. Hide all panels
+                    tabPanels.forEach(panel => {
+                        panel.classList.add('opacity-0', 'invisible', 'absolute', '-z-10', 'translate-y-4');
+                        panel.classList.remove('opacity-100', 'visible', 'relative', 'z-10', 'translate-y-0');
+                    });
+
+                    // 4. Show target panel
+                    const targetId = btn.getAttribute('data-target');
+                    const targetPanel = document.getElementById(targetId);
+                    if (targetPanel) {
+                        // Small buffer to allow css transition
+                        targetPanel.classList.remove('absolute', '-z-10');
+                        targetPanel.classList.add('relative', 'z-10');
+
+                        // Trigger reflow/animation
+                        requestAnimationFrame(() => {
+                            targetPanel.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                            targetPanel.classList.add('opacity-100', 'visible', 'translate-y-0');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 
     <!-- Archive List -->
     <section class="py-24 px-6 md:px-12 max-w-4xl mx-auto">
