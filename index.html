@@ -291,7 +291,8 @@
 
     <!-- Works Grid Section -->
     <!-- Works Grid Section (Tabbed) -->
-    <section class="py-24 bg-[#f5f4f2] rounded-[8px] mx-4 md:mx-8 mb-24 overflow-hidden relative min-h-[800px]">
+    <section
+        class="py-24 bg-[#f5f4f2] rounded-[8px] mx-4 md:mx-8 mb-24 overflow-hidden relative transition-all duration-500">
         <div class="px-6 md:px-16 mb-12">
             <div class="flex flex-col md:flex-row justify-between items-end gap-8">
                 <div>
@@ -306,13 +307,16 @@
                         data-target="panel-all">All</button>
                     <button
                         class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
-                        data-target="panel-visual">視覺</button>
+                        data-target="panel-visual">平面</button>
                     <button
                         class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
                         data-target="panel-ui">UII</button>
                     <button
                         class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
                         data-target="panel-illustration">插畫</button>
+                    <button
+                        class="tab-btn hover:text-stone-800 border-b-2 border-transparent hover:border-stone-300 pb-4 transition-all duration-300"
+                        data-target="panel-character">角色</button>
                 </div>
             </div>
         </div>
@@ -322,49 +326,69 @@
 
             <!-- Panel All -->
             <div id="panel-all"
-                class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-100 visible relative z-10">
-                <!-- Work 1 -->
-                <div class="group cursor-pointer">
+                class="tab-panel grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 transition-all duration-500 opacity-100 visible relative z-10 md:h-[500px]">
+
+                <!-- Work 1: Large Block (Left) - Red Envelope -->
+                <div
+                    class="group relative col-span-1 md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="./images/red_envelope_packaging.png"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="Red Envelope Packaging">
                     <div
-                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=2787&auto=format&fit=crop"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                            alt="Magazine Layout">
+                        class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Editorial</span>
-                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
-                            Kinfolk Style</h4>
+                    <div
+                        class="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="text-[10px] tracking-widest uppercase opacity-80">Packaging</span>
+                        <h4 class="text-2xl font-light mt-2">Golden Lock Charm</h4>
                     </div>
                 </div>
-                <!-- Work 2 -->
-                <div class="group cursor-pointer md:mt-24">
+
+                <!-- Work 2: Wide Block (Top Right) - Character Marathon -->
+                <div class="group relative col-span-1 md:col-span-2 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="./images/character_marathon.jpg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="Character Marathon Open">
                     <div
-                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                        <img src="https://images.unsplash.com/photo-1589330694653-418b72500732?q=80&w=2787&auto=format&fit=crop"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                            alt="Brand Identity">
+                        class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Branding</span>
-                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
-                            Mono Coffee</h4>
+                    <div
+                        class="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="text-[10px] tracking-widest uppercase opacity-80">Illustration</span>
+                        <h4 class="text-2xl font-light mt-2">Character Marathon</h4>
                     </div>
                 </div>
-                <!-- Work 3 -->
-                <div class="group cursor-pointer">
+
+                <!-- Work 3: Small Block (Bottom Right 1) - Ocean Day -->
+                <div class="group relative col-span-1 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="./images/ocean_day.jpg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="National Ocean Day">
                     <div
-                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
-                        <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?q=80&w=2788&auto=format&fit=crop"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
-                            alt="Art Exhibition Poster">
+                        class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     </div>
-                    <div class="mt-8 px-2">
-                        <span class="text-xs text-stone-400 tracking-widest uppercase">Poster</span>
-                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
-                            Silence Exhibition</h4>
+                    <div
+                        class="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="text-[10px] tracking-widest uppercase opacity-80">Event Visual</span>
+                        <h4 class="text-xl font-light mt-2">Ocean Day</h4>
                     </div>
                 </div>
+
+                <!-- Work 4: Small Block (Bottom Right 2) - Theatre Poster -->
+                <div class="group relative col-span-1 rounded-2xl overflow-hidden cursor-pointer">
+                    <img src="./images/theatre_poster.jpg"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        alt="Theatre Center">
+                    <div
+                        class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div
+                        class="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <span class="text-[10px] tracking-widest uppercase opacity-80">Poster</span>
+                        <h4 class="text-xl font-light mt-2">Theatre Center</h4>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Panel Visual (Was Print) -->
@@ -504,6 +528,53 @@
                         <span class="text-xs text-stone-400 tracking-widest uppercase">Illustration</span>
                         <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
                             Blooming</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel Character (New) -->
+            <div id="panel-character"
+                class="tab-panel flex flex-col md:grid md:grid-cols-3 gap-8 md:gap-12 transition-all duration-500 opacity-0 invisible absolute inset-0 -z-10 px-6 md:px-16 translate-y-4">
+                <!-- Work 1 -->
+                <div class="group cursor-pointer md:mt-12">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1620336655055-088d06e36bf0?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Character Design 1">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Character</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            The Warrior</h4>
+                    </div>
+                </div>
+                <!-- Work 2 -->
+                <div class="group cursor-pointer">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1637823528842-8c8c5c4d5156?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Character Design 2">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Character</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Forest Spirit</h4>
+                    </div>
+                </div>
+                <!-- Work 3 -->
+                <div class="group cursor-pointer md:mt-24">
+                    <div
+                        class="aspect-[3/4] bg-white rounded-[8px] overflow-hidden shadow-sm hover:shadow-floating transition-shadow duration-700 relative">
+                        <img src="https://images.unsplash.com/photo-1560932669-5e3252f28b84?q=80&w=2787&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 opacity-95 group-hover:opacity-100"
+                            alt="Character Design 3">
+                    </div>
+                    <div class="mt-8 px-2">
+                        <span class="text-xs text-stone-400 tracking-widest uppercase">Character</span>
+                        <h4 class="text-xl text-stone-800 mt-2 font-light group-hover:text-stone-600 transition-colors">
+                            Cyber Punk</h4>
                     </div>
                 </div>
             </div>
